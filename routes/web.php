@@ -15,6 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('users', 'UserController@index');
+Route::get('users', 'UserController@index')->name('jsp');
 
 Route::get('user/{id}', 'UserController@show')->where('id', '[0-9]+');
