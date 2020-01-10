@@ -4,10 +4,10 @@
 
 @section('content')
 
-    <p>{{ $user->id }}</p>
-    <p>{{ $user->name }}</p>
-    <p>{{ $user->first_name }}</p>
-    <p>{{ $user->email }}</p>
-    <p>{{ $user->bio }}</p>
+    <p>ID : {{ $user->id }}</p>
+    <p>Nom de famille : {{ $user->name }}</p>
+    <p>Prénom : {{ $user->first_name }}</p>
+    <p>Email : {{ $user->email }}</p>
+    <p>Bio : {{ $user->bio }}</p>
 
 @endsection

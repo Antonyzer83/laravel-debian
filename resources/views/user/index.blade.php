@@ -17,7 +17,7 @@
         </thead>
         <body>
             @foreach($users as $user)
-                <tr>
+                <tr @if(Auth::user()->id == $user->id) style="color: red;" @endif>
                     <td>{{ $user->id }}</td>
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->first_name }}</td>
