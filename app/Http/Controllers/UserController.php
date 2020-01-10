@@ -62,11 +62,13 @@ class UserController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function show($id)
     {
-        //
+        $user = User::find($id);
+
+        return view('user.show', ['user' => $user]);
     }
 
     /**
@@ -114,10 +116,13 @@ class UserController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id);
+        $user->delete();
+
+        return redirect('/users');
     }
 }

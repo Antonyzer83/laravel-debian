@@ -23,7 +23,15 @@
                     <td>{{ $user->first_name }}</td>
                     <td>{{ $user->email }}</td>
                     <td>{{ $user->bio }}</td>
-                    <td><a href="{{ route('users.edit', $user->id) }}">Modifier</a></td>
+                    <td><a href="{{ route('users.show', $user->id) }}" class="btn btn-info">Voir</a></td>
+                    <td><a href="{{ route('users.edit', $user->id) }}" class="btn btn-success">Modifier</a></td>
+                    <td>
+                        <form action="{{ route('users.destroy', $user->id) }}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn-danger">Supprimer</button>
+                        </form>
+                    </td>
                 </tr>
             @endforeach
         </body>
