@@ -1,25 +1,30 @@
 @extends('layouts.app')
 
-@section('title', 'Utilisateurs')
-
-@section('left')
-    @parent
-    <p>Child left</p>
-@endsection
+@section('title', 'Liste des utilisateurs')
 
 @section('content')
-    <p>Liste des utilisateurs</p>
 
-    @foreach($users as $user)
-        <li>{{ $user[0] }}</li>
-    @endforeach
+    <table class="table">
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>Nom</td>
+                <td>Prénom</td>
+                <td>Email</td>
+                <td>Bio</td>
+            </tr>
+        </thead>
+        <body>
+            @foreach($users as $user)
+                <tr>
+                    <td>{{ $user->id }}</td>
+                    <td>{{ $user->name }}</td>
+                    <td>{{ $user->first_name }}</td>
+                    <td>{{ $user->email }}</td>
+                    <td>{{ $user->bio }}</td>
+                </tr>
+            @endforeach
+        </body>
+    </table>
 
-    <form method="post" class="form" action="{{ route('jsp') }}">
-        @csrf
-        <div class="form-group">
-            <label for="first_name">Firstname :</label>
-            <input type="text" class="form-control" name="first_name"/>
-        </div>
-        <button type="submit" class="btn btn-primary">Valider</button>
-    </form>
 @endsection

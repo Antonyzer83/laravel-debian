@@ -3,38 +3,59 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index()
     {
-        //
+        $users = User::all();
+
+        return view('user.index', compact('users'));
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function create()
     {
-        //
+        return view('user.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'first_name' => 'required',
+            'email' => 'required',
+            'bio' => 'required',
+            'password' => 'required',
+            'c_password' => 'required|same:password'
+        ]);
+
+        $user = new User([
+            'name' => $request->get('name'),
+            'first_name' => $request->get('first_name'),
+            'email' => $request->get('email'),
+            'bio' => $request->get('bio'),
+            'password' => $request->get('password')
+        ]);
+        $user->save();
+
+        return redirect('/users');
     }
 
     /**

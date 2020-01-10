@@ -16,14 +16,23 @@
 <body>
     @component('layouts.components.navbar')
         @slot('name')
-            Utilisateurs
+            Gestion d'utilisateurs
         @endslot
     @endcomponent
     <div class="container">
         <div class="row">
             <div class="col-sm">
                 @section('left')
-                    Layout left
+                    <h2>Liste des routes :</h2>
+                    <ul>
+                        <li>users.index : users GET,</li>
+                        <li>users.store : users POST,</li>
+                        <li>users.create : users/create GET</li>
+                        <li>users.show : users/{id} GET</li>
+                        <li>users.update : users/{id} PUT</li>
+                        <li>users.destroy : users/{id} DELETE</li>
+                        <li>users.edit : users/{id}/edit GET</li>
+                    </ul>
                 @show
             </div>
 
