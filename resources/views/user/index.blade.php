@@ -12,6 +12,7 @@
                 <td>Prénom</td>
                 <td>Email</td>
                 <td>Bio</td>
+                <td>Actions</td>
             </tr>
         </thead>
         <body>
@@ -22,6 +23,7 @@
                     <td>{{ $user->first_name }}</td>
                     <td>{{ $user->email }}</td>
                     <td>{{ $user->bio }}</td>
+                    <td><a href="{{ route('users.edit', $user->id) }}">Modifier</a></td>
                 </tr>
             @endforeach
         </body>

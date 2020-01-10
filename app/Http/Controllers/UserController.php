@@ -73,11 +73,13 @@ class UserController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+
+        return view('user.edit', compact('user'));
     }
 
     /**
@@ -85,11 +87,27 @@ class UserController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'first_name' => 'required',
+            'email' => 'required',
+            'bio' => 'required'
+        ]);
+
+        $user = User::find($id);
+
+        $user->name = $request->get('name');
+        $user->first_name = $request->get('first_name');
+        $user->email = $request->get('email');
+        $user->bio = $request->get('bio');
+
+        $user->save();
+
+        return redirect('/users');
     }
 
     /**
