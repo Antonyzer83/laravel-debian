@@ -12,7 +12,7 @@ class Skill extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'description'
+        'name', 'description', 'logo'
     ];
 
     /**
@@ -20,6 +20,6 @@ class Skill extends Model
      */
     public function users()
     {
-        return $this->belongsToMany('App\User');
+        return $this->belongsToMany('App\User')->withPivot('level');
     }
 }

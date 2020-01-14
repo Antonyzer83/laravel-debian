@@ -44,7 +44,7 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function store(Request $request)
+    public function store()
     {
         $data = $this->storeValidation();
         $data['password'] = Hash::make($data['password']);
@@ -111,7 +111,8 @@ class UserController extends Controller
         return redirect('/users')->with('error', 'L\'utilisateur a bien été supprimé.');
     }
 
-    private function storeValidation() {
+    private function storeValidation()
+    {
         return request()->validate([
             'name' => 'required',
             'first_name' => 'required',
@@ -122,7 +123,8 @@ class UserController extends Controller
         ]);
     }
 
-    private function updateValidation() {
+    private function updateValidation()
+    {
         return request()->validate([
             'name' => 'required',
             'first_name' => 'required',

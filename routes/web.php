@@ -19,6 +19,8 @@ Route::resource('users', 'UserController', ['except' => 'index'])->middleware('a
 
 Route::get('/users', 'UserController@index');
 
+Route::resource('skills', 'SkillController')->middleware('auth');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
