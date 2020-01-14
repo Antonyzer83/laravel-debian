@@ -8,8 +8,8 @@
         @method('PATCH')
         @csrf
         <div class="form-group">
-            <label for="name">Nom :</label>
-            <input type="text" class="form-control" name="name" value="{{ $user->name }}"/>
+            <label for="last_name">Nom :</label>
+            <input type="text" class="form-control" name="last_name" value="{{ $user->last_name }}"/>
         </div>
         <div class="form-group">
             <label for="first_name">Prénom :</label>

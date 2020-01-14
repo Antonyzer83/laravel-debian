@@ -7,8 +7,8 @@
     <form method="post" class="form" action="{{ route('users.store') }}">
         @csrf
         <div class="form-group">
-            <label for="name">Nom :</label>
-            <input type="text" class="form-control" name="name"/>
+            <label for="last_name">Nom :</label>
+            <input type="text" class="form-control" name="last_name"/>
         </div>
         <div class="form-group">
             <label for="first_name">Prénom :</label>

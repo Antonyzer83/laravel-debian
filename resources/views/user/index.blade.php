@@ -8,6 +8,7 @@
         <thead>
             <tr>
                 <td>ID</td>
+                <td>Nom entier</td>
                 <td>Nom</td>
                 <td>Prénom</td>
                 <td>Rôle</td>
@@ -23,6 +24,7 @@
                 <tr @if(Auth::check()) @if(Auth::user()->id == $user->id) style="color: red;" @endif @endif>
                     <td>{{ $user->id }}</td>
                     <td>{{ $user->name }}</td>
+                    <td>{{ $user->last_name }}</td>
                     <td>{{ $user->first_name }}</td>
                     <td>{{ $user->role }}</td>
                     <td>{{ $user->email }}</td>

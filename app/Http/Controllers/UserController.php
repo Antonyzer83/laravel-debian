@@ -47,6 +47,7 @@ class UserController extends Controller
     public function store()
     {
         $data = $this->storeValidation();
+        $data['name'] = $data['last_name'] . " " . $data['first_name'];
         $data['password'] = Hash::make($data['password']);
         $user = User::create($data);
 
@@ -89,9 +90,10 @@ class UserController extends Controller
     public function update($id)
     {
         $data = $this->updateValidation();
+        $data['name'] = $data['last_name'] . " " . $data['first_name'];
 
         $user = User::find($id);
-        $user['status'] = $data['status'];
+        $user['status'] = isset($data['status']) ? $data['status'] : 0;
         $user->update($data);
 
         return redirect('/users');
@@ -114,8 +116,8 @@ class UserController extends Controller
     private function storeValidation()
     {
         return request()->validate([
-            'name' => 'required',
             'first_name' => 'required',
+            'last_name' => 'required',
             'email' => 'required|unique:users',
             'bio' => 'required',
             'password' => 'required',
@@ -126,8 +128,8 @@ class UserController extends Controller
     private function updateValidation()
     {
         return request()->validate([
-            'name' => 'required',
             'first_name' => 'required',
+            'last_name' => 'required',
             'email' => 'required',
             'status' => 'integer|between:0,1',
             'bio' => 'required'
