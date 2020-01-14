@@ -25,7 +25,7 @@ class SkillTableSeeder extends Seeder
             'logo' => 'python.png'
         ], [
             'name' => 'JavaScript',
-            'description' => 'Inventé par Olivier GISELMAN',
+            'description' => 'Inventé par GISSELMANN Olivier',
             'logo' => 'js.png'
         ]);
 
