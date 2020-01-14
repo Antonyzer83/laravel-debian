@@ -17,6 +17,14 @@ class UserController extends Controller
     {
         $users = User::all();
 
+        foreach ($users as $user) {
+            if ($user->status === 0) {
+                $user->role = "Standard";
+            } else {
+                $user->role = "Administrateur";
+            }
+        }
+
         return view('user.index', compact('users'));
     }
 
@@ -38,25 +46,11 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'first_name' => 'required',
-            'email' => 'required|unique:users',
-            'bio' => 'required',
-            'password' => 'required',
-            'c_password' => 'required|same:password'
-        ]);
+        $data = $this->storeValidation();
+        $data['password'] = Hash::make($data['password']);
+        $user = User::create($data);
 
-        $user = new User([
-            'name' => $request->get('name'),
-            'first_name' => $request->get('first_name'),
-            'email' => $request->get('email'),
-            'bio' => $request->get('bio'),
-            'password' => Hash::make($request->get('password'))
-        ]);
-        $user->save();
-
-        return redirect('/users');
+        return redirect('/users')->with('success', 'L\'utilisateur a bien été sauvegardé.');
     }
 
     /**
@@ -92,23 +86,13 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function update(Request $request, $id)
+    public function update($id)
     {
-        $request->validate([
-            'name' => 'required',
-            'first_name' => 'required',
-            'email' => 'required',
-            'bio' => 'required'
-        ]);
+        $data = $this->updateValidation();
 
         $user = User::find($id);
-
-        $user->name = $request->get('name');
-        $user->first_name = $request->get('first_name');
-        $user->email = $request->get('email');
-        $user->bio = $request->get('bio');
-
-        $user->save();
+        $user['status'] = $data['status'];
+        $user->update($data);
 
         return redirect('/users');
     }
@@ -124,6 +108,27 @@ class UserController extends Controller
         $user = User::find($id);
         $user->delete();
 
-        return redirect('/users');
+        return redirect('/users')->with('error', 'L\'utilisateur a bien été supprimé.');
+    }
+
+    private function storeValidation() {
+        return request()->validate([
+            'name' => 'required',
+            'first_name' => 'required',
+            'email' => 'required|unique:users',
+            'bio' => 'required',
+            'password' => 'required',
+            'c_password' => 'required|same:password'
+        ]);
+    }
+
+    private function updateValidation() {
+        return request()->validate([
+            'name' => 'required',
+            'first_name' => 'required',
+            'email' => 'required',
+            'status' => 'integer|between:0,1',
+            'bio' => 'required'
+        ]);
     }
 }

@@ -19,6 +19,12 @@
             <label for="email">Email :</label>
             <input type="text" class="form-control" name="email" value="{{ $user->email }}"/>
         </div>
+        @if(Auth::user()->status === 1)
+            <div class="form-group">
+                <label for="status">Statut (0 : Standard | 1 : Admin) :</label>
+                <input type="number" class="form-control" name="status" value="{{ $user->status }}" min="0" max="1"/>
+            </div>
+        @endif
         <div class="form-group">
             <label for="bio">Bio :</label>
             <input type="text" class="form-control" name="bio" value="{{ $user->bio }}"/>
