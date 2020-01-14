@@ -5,6 +5,8 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\Hash;
+use function foo\func;
 
 class User extends Authenticatable
 {
@@ -36,6 +38,24 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Set the user's name
+     */
+    public function setNameAttribute()
+    {
+        if (isset($this->attributes['first_name']) && isset($this->attributes['last_name']))
+            $this->attributes['name'] = $this->attributes['first_name'] . ' ' . $this->attributes['first_name'];
+
+        $this->attributes['name'];
+    }
+
+    /*
+    public function setPasswordAttribute()
+    {
+        $this->attributes['password'] = Hash::make($this->attributes['password']);
+    }
+    */
 
     /**
      * The skills that belong to the user

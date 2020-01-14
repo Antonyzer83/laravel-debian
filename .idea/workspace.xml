@@ -3,10 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="272aef83-586b-4104-b632-78b081e89a5a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/UserFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/UserFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_01_14_101708_create_user_skill_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_01_14_101708_create_user_skill_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/SkillTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/SkillTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SkillController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SkillController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/skill/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/skill/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/skill/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/skill/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/skill/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/skill/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/skill/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/skill/show.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,7 +177,7 @@
       <workItem from="1578985574685" duration="5730000" />
       <workItem from="1578991910200" duration="2342000" />
       <workItem from="1578996208852" duration="5348000" />
-      <workItem from="1579021955131" duration="3927000" />
+      <workItem from="1579021955131" duration="6820000" />
     </task>
     <servers />
   </component>
@@ -182,6 +185,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="371" y="97" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1579031323413">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="371" y="97" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1280.680@0.0.1280.680" timestamp="1579031323413" />
     <state x="421" y="97" key="FileChooserDialogImpl" timestamp="1578996205587">
       <screen x="0" y="0" width="1280" height="680" />
     </state>

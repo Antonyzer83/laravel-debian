@@ -7,5 +7,6 @@
     <p>ID : {{ $skill->id }}</p>
     <p>Nom : {{ $skill->name }}</p>
     <p>Description : {{ $skill->description }}</p>
+    <p>Logo : {{ $skill->logo }}}</p>
 
 @endsection

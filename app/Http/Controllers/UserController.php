@@ -47,7 +47,7 @@ class UserController extends Controller
     public function store()
     {
         $data = $this->storeValidation();
-        $data['name'] = $data['last_name'] . " " . $data['first_name'];
+        $data['name'] = '';
         $data['password'] = Hash::make($data['password']);
         $user = User::create($data);
 
@@ -90,7 +90,6 @@ class UserController extends Controller
     public function update($id)
     {
         $data = $this->updateValidation();
-        $data['name'] = $data['last_name'] . " " . $data['first_name'];
 
         $user = User::find($id);
         $user['status'] = isset($data['status']) ? $data['status'] : 0;

@@ -14,6 +14,10 @@
             <label for="description">Description :</label>
             <input type="text" class="form-control" name="description"/>
         </div>
+        <div class="form-group">
+            <label for="logo">Logo :</label>
+            <input type="text" class="form-control" name="logo"/>
+        </div>
         <button type="submit" class="btn btn-primary">Valider</button>
     </form>
 

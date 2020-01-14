@@ -104,7 +104,8 @@ class SkillController extends Controller
     {
         return request()->validate([
             'name' => 'required|unique:skills',
-            'description' => 'required'
+            'description' => 'required',
+            'logo' => 'required'
         ]);
     }
 
@@ -112,7 +113,8 @@ class SkillController extends Controller
     {
         return request()->validate([
             'name' => 'required',
-            'description' => 'required'
+            'description' => 'required',
+            'logo' => 'required'
         ]);
     }
 }
