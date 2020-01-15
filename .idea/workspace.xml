@@ -3,13 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="272aef83-586b-4104-b632-78b081e89a5a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SkillController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SkillController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/skill/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/skill/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/skill/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/skill/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/skill/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/skill/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/skill/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/skill/show.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,7 +172,9 @@
       <workItem from="1578985574685" duration="5730000" />
       <workItem from="1578991910200" duration="2342000" />
       <workItem from="1578996208852" duration="5348000" />
-      <workItem from="1579021955131" duration="6820000" />
+      <workItem from="1579021955131" duration="6899000" />
+      <workItem from="1579071410268" duration="651000" />
+      <workItem from="1579075257158" duration="638000" />
     </task>
     <servers />
   </component>

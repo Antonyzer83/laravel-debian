@@ -39,16 +39,21 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    /**
+    public function __construct($attributes = array())
+    {
+        parent::__construct($attributes);
+        $this->attributes = $attributes;
+    }
+
+
+    /*
      * Set the user's name
-     */
+     *
     public function setNameAttribute()
     {
-        if (isset($this->attributes['first_name']) && isset($this->attributes['last_name']))
-            $this->attributes['name'] = $this->attributes['first_name'] . ' ' . $this->attributes['first_name'];
-
-        $this->attributes['name'];
+        $this->attributes['name'] = $this->attributes['first_name'] . ' ' . $this->attributes['first_name'];
     }
+    */
 
     /*
     public function setPasswordAttribute()

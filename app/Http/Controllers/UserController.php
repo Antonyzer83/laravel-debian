@@ -47,9 +47,9 @@ class UserController extends Controller
     public function store()
     {
         $data = $this->storeValidation();
-        $data['name'] = '';
+        $data['name'] = $data['last_name'] . ' ' . $data['first_name'];
         $data['password'] = Hash::make($data['password']);
-        $user = User::create($data);
+        User::create($data);
 
         return redirect('/users')->with('success', 'L\'utilisateur a bien été sauvegardé.');
     }
@@ -93,6 +93,7 @@ class UserController extends Controller
 
         $user = User::find($id);
         $user['status'] = isset($data['status']) ? $data['status'] : 0;
+        $user['name'] = $data['last_name'] . ' ' . $data['first_name'];
         $user->update($data);
 
         return redirect('/users');
