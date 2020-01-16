@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use function foo\func;
 
@@ -68,5 +69,14 @@ class User extends Authenticatable
     public function skills()
     {
         return $this->belongsToMany('App\Skill')->withPivot('level');
+    }
+
+    /**
+     * The skills that not belong to the user
+     */
+    public function availableSkills()
+    {
+        $ids = DB::table('skill_user')->where('user_id', $this->id)->pluck('skill_id');
+        return Skill::whereNotIn('id', $ids)->get();
     }
 }

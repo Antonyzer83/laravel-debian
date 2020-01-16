@@ -79,8 +79,9 @@ class UserController extends Controller
     {
         $user = User::find($id);
         $skills = $user->skills()->get();
+        $available_skills = $user->availableSkills();
 
-        return view('user.edit', ['user' => $user, 'skills' => $skills]);
+        return view('user.edit', ['user' => $user, 'skills' => $skills, 'available_skills' => $available_skills]);
     }
 
     /**
@@ -100,6 +101,11 @@ class UserController extends Controller
         $user->update($data);
 
         return redirect('/users');
+    }
+
+    public function addSkills()
+    {
+
     }
 
     /**

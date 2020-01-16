@@ -37,9 +37,38 @@
             </div>
 
             <div class="col-sm">
+                <form method="post" class="form" action="">
+                    @method('PATCH')
+                    @csrf
+                    <div class="form-group">
+                        <label class="font-weight-bold">Ajouter une compétence :</label>
+                        <select class="form-control">
+                            @foreach($available_skills as $available_skill)
+                                <option value="{{ $available_skill->id }}">{{ $available_skill->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Valider</button>
+                </form>
+
+                <form method="post" class="form my-4" action="">
+                    @method('DELETE')
+                    @csrf
+                    <div class="form-group">
+                        <label class="font-weight-bold">Supprimer une compétence :</label>
+                        <select class="form-control">
+                            @foreach($skills as $skill)
+                               <option value="{{ $skill->id }}">{{ $skill->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Valider</button>
+                </form>
+
                 <form method="post" class="form" action="{{ url('users/'.  $user->id  . '/skills') }}">
                     @method('PATCH')
                     @csrf
+                    <label class="font-weight-bold">Modifier mes compétences :</label>
                     @foreach($skills as $skill)
                         <div class="form-group">
                             <label for="skills[level][]">{{ $skill->name }}</label>
