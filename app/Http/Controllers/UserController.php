@@ -103,7 +103,7 @@ class UserController extends Controller
         return redirect('/users');
     }
 
-    public function addSkills()
+    public function addSkill()
     {
 
     }
@@ -125,6 +125,11 @@ class UserController extends Controller
         }
 
         return redirect('/users');
+    }
+
+    public function destroySkill()
+    {
+
     }
 
     /**

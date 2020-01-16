@@ -37,8 +37,7 @@
             </div>
 
             <div class="col-sm">
-                <form method="post" class="form" action="">
-                    @method('PATCH')
+                <form method="post" class="form" action="{{ url('users/'.  $user->id  . '/skills') }}">
                     @csrf
                     <div class="form-group">
                         <label class="font-weight-bold">Ajouter une compétence :</label>
@@ -51,7 +50,7 @@
                     <button type="submit" class="btn btn-primary">Valider</button>
                 </form>
 
-                <form method="post" class="form my-4" action="">
+                <form method="post" class="form my-4" action="{{ url('users/'.  $user->id  . '/skills') }}">
                     @method('DELETE')
                     @csrf
                     <div class="form-group">

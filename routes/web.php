@@ -25,6 +25,10 @@ Route::get('skills', 'SkillController@index');
 
 Route::match(['put', 'patch'], 'users/{id}/skills', 'UserController@updateSkills')->middleware('auth');
 
+Route::post('users/{id}/skills', 'UserController@addSkill');
+
+Route::delete('users/{id}/skills', 'UserController@destroySkill');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
