@@ -41,7 +41,7 @@
                     @csrf
                     <div class="form-group">
                         <label class="font-weight-bold">Ajouter une compétence :</label>
-                        <select class="form-control">
+                        <select class="form-control" name="skill_id">
                             @foreach($available_skills as $available_skill)
                                 <option value="{{ $available_skill->id }}">{{ $available_skill->name }}</option>
                             @endforeach
@@ -55,7 +55,7 @@
                     @csrf
                     <div class="form-group">
                         <label class="font-weight-bold">Supprimer une compétence :</label>
-                        <select class="form-control">
+                        <select class="form-control" name="skill_id">
                             @foreach($skills as $skill)
                                <option value="{{ $skill->id }}">{{ $skill->name }}</option>
                             @endforeach

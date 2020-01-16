@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Skill;
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -103,9 +104,17 @@ class UserController extends Controller
         return redirect('/users');
     }
 
-    public function addSkill()
+    /**
+     * Add a user's skill
+     */
+    public function addSkill($id)
     {
+        $data = $this->addSkillsValidation();
+        $data['user_id'] = $id;
+        $data['level'] = 1;
+        DB::table('skill_user')->insert($data);
 
+        return redirect('/users');
     }
 
     /**
@@ -127,9 +136,18 @@ class UserController extends Controller
         return redirect('/users');
     }
 
-    public function destroySkill()
+    /**
+     * Remove a user's skill
+     */
+    public function destroySkill($id)
     {
+        $data = $this->destroySkillsValidation();
+        print_r($data);
 
+        $user = User::find($id);
+        $user->skills()->detach($data['skill_id']);
+
+        return redirect('/users');
     }
 
     /**
@@ -174,6 +192,20 @@ class UserController extends Controller
         return request()->validate([
             'skills.level.*' => 'required|integer|between:1,5',
             'skills.id.*' => 'required|integer'
+        ]);
+    }
+
+    private function addSkillsValidation()
+    {
+        return request()->validate([
+            'skill_id' => 'required|integer'
+        ]);
+    }
+
+    private function destroySkillsValidation()
+    {
+        return request()->validate([
+            'skill_id' => 'required|integer'
         ]);
     }
 }
