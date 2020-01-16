@@ -14,6 +14,7 @@
                 <td>Rôle</td>
                 <td>Email</td>
                 <td>Bio</td>
+                <td>Compétences</td>
                 @if(Auth::check())
                     <td colspan="3">Actions</td>
                 @endif
@@ -29,6 +30,13 @@
                     <td>{{ $user->role }}</td>
                     <td>{{ $user->email }}</td>
                     <td>{{ $user->bio }}</td>
+                    <td>
+                        <ul class="list-group list-group-flush">
+                        @foreach($user->skills as $skill)
+                                <li class="list-group-item">{{ $skill->name }} : {{ $skill->pivot->level }} / 5</li>
+                        @endforeach
+                        </ul>
+                    </td>
                     @if(Auth::check())
                         @if(Auth::user()->id === $user->id || Auth::user()->status === 1)
                             <td><a href="{{ route('users.show', $user->id) }}" class="btn btn-info">Voir</a></td>

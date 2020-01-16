@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Route::resource('users', 'UserController', ['except' => 'index'])->middleware('auth');
 
-Route::get('/users', 'UserController@index');
+Route::get('users', 'UserController@index');
 
 Route::resource('skills', 'SkillController')->middleware('auth');
 

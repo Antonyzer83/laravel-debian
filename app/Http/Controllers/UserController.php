@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Skill;
 use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Hash;
@@ -18,6 +19,7 @@ class UserController extends Controller
         $users = User::all();
 
         foreach ($users as $user) {
+            $user->skills = $user->skills()->get();
             if ($user->status === 0) {
                 $user->role = "Standard";
             } else {

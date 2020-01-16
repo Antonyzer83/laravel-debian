@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
                 } while (in_array($skill_id, $skills_id));
                 array_push($skills_id, $skill_id);
                 $level = rand(1, 5);
-                DB::table('user_skill')->insert([
+                DB::table('skill_user')->insert([
                     'user_id' => $user->id,
                     'skill_id' => $skill_id,
                     'level' => $level
