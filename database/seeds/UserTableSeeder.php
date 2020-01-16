@@ -24,5 +24,25 @@ class UserTableSeeder extends Seeder
         ]);
 
         App\User::insert($data);
+
+        $skills = array([
+            'user_id' => 1,
+            'skill_id' => 1,
+            'level' => 5
+        ], [
+            'user_id' => 1,
+            'skill_id' => 2,
+            'level' => 5
+        ],[
+            'user_id' => 1,
+            'skill_id' => 3,
+            'level' => 5
+        ],[
+            'user_id' => 1,
+            'skill_id' => 4,
+            'level' => 5
+        ],);
+
+        DB::table('skill_user')->insert($skills);
     }
 }
