@@ -78,8 +78,9 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
+        $skills = $user->skills()->get();
 
-        return view('user.edit', compact('user'));
+        return view('user.edit', ['user' => $user, 'skills' => $skills]);
     }
 
     /**
@@ -97,6 +98,25 @@ class UserController extends Controller
         $user['status'] = isset($data['status']) ? $data['status'] : 0;
         $user['name'] = $data['last_name'] . ' ' . $data['first_name'];
         $user->update($data);
+
+        return redirect('/users');
+    }
+
+    /**
+     * Update the user's skills
+     *
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function updateSkills($id)
+    {
+        $data = $this->updateSkillsValidation();
+
+        $user = User::find($id);
+        $skills = $data['skills'];
+        for ($i = 0; $i < sizeof($skills['id']); $i++) {
+            $user->skills()->updateExistingPivot($skills['id'][$i], ['level' => $skills['level'][$i]]);
+        }
 
         return redirect('/users');
     }
@@ -135,6 +155,14 @@ class UserController extends Controller
             'email' => 'required',
             'status' => 'integer|between:0,1',
             'bio' => 'required'
+        ]);
+    }
+
+    private function updateSkillsValidation()
+    {
+        return request()->validate([
+            'skills.level.*' => 'required|integer|between:1,5',
+            'skills.id.*' => 'required|integer'
         ]);
     }
 }

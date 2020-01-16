@@ -19,7 +19,11 @@ Route::resource('users', 'UserController', ['except' => 'index'])->middleware('a
 
 Route::get('users', 'UserController@index');
 
-Route::resource('skills', 'SkillController')->middleware('auth');
+Route::resource('skills', 'SkillController', ['except' => 'index'])->middleware('auth');
+
+Route::get('skills', 'SkillController@index');
+
+Route::match(['put', 'patch'], 'users/{id}/skills', 'UserController@updateSkills')->middleware('auth');
 
 Auth::routes();
 
