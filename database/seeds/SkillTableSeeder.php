@@ -26,7 +26,7 @@ class SkillTableSeeder extends Seeder
         ], [
             'name' => 'JavaScript',
             'description' => 'Inventé par GISSELMANN Olivier',
-            'logo' => 'js.png'
+            'logo' => 'javascript.png'
         ]);
 
         App\Skill::insert($data);

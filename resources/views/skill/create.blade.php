@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <form method="post" class="form" action="{{ route('skills.store') }}">
+    <form method="post" class="form" action="{{ route('skills.store') }}" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
             <label for="name">Nom :</label>
@@ -16,7 +16,7 @@
         </div>
         <div class="form-group">
             <label for="logo">Logo :</label>
-            <input type="text" class="form-control" name="logo"/>
+            <input type="file" class="form-control" name="logo"/>
         </div>
         <button type="submit" class="btn btn-primary">Valider</button>
     </form>

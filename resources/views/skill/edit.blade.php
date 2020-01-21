@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <form method="post" class="form" action="{{ route('skills.update', $skill->id) }}">
+    <form method="post" class="form" action="{{ route('skills.update', $skill->id) }}" enctype="multipart/form-data">
         @method('PATCH')
         @csrf
         <div class="form-group">
@@ -17,7 +17,7 @@
         </div>
         <div class="form-group">
             <label for="logo">Logo :</label>
-            <input type="text" class="form-control" name="logo" value="{{ $skill->logo }}"/>
+            <input type="file" class="form-control" name="logo" value="{{ $skill->logo }}"/>
         </div>
         <button type="submit" class="btn btn-primary">Valider</button>
     </form>

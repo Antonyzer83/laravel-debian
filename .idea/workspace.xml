@@ -3,9 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="272aef83-586b-4104-b632-78b081e89a5a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SkillController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SkillController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bootstrap/cache/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/cache/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/user/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/SkillTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/SkillTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/skill/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/skill/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/skill/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/skill/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/skill/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/skill/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/storage/app/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/storage/app/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/storage/app/public/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/storage/app/public/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/storage/debugbar/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/storage/debugbar/.gitignore" afterDir="false" />
@@ -187,7 +190,8 @@
       <workItem from="1579071410268" duration="651000" />
       <workItem from="1579075257158" duration="2894000" />
       <workItem from="1579161598541" duration="6335000" />
-      <workItem from="1579168525913" duration="3319000" />
+      <workItem from="1579168525913" duration="3669000" />
+      <workItem from="1579589450755" duration="6016000" />
     </task>
     <servers />
   </component>
@@ -195,6 +199,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="404" y="145" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1579594135772">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="404" y="145" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.680@0.0.1280.680" timestamp="1579594135772" />
     <state x="371" y="97" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1579031323413">
       <screen x="0" y="0" width="1280" height="680" />
     </state>

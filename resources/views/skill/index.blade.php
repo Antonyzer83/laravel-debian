@@ -23,7 +23,7 @@
                     <td>{{ $skill->id }}</td>
                     <td>{{ $skill->name }}</td>
                     <td>{{ $skill->description }}</td>
-                    <td>{{ $skill->logo }}</td>
+                    <td><img src="skills_img/{{ $skill->logo }}" alt="{{ $skill->name }}"></td>
                     @if(Auth::check())
                         @if(Auth::user()->status === 1)
                             <td><a href="{{ route('skills.show', $skill->id) }}" class="btn btn-info">Voir</a></td>

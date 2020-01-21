@@ -38,6 +38,12 @@ class SkillController extends Controller
     public function store()
     {
         $data = $this->storeValidation();
+
+        $image_name = strtolower($data['name']) . '.' . $data['logo']->extension();
+
+        $data['logo']->move(public_path('skills_img'), $image_name);
+        $data['logo'] = $image_name;
+
         $user = Skill::create($data);
 
         return redirect('/skills')->with('success', 'La compétence a bien été sauvegardé.');
@@ -105,7 +111,7 @@ class SkillController extends Controller
         return request()->validate([
             'name' => 'required|unique:skills',
             'description' => 'required',
-            'logo' => 'required'
+            'logo' => 'required|image|mimes:jpeg,jpg,png,svg'
         ]);
     }
 
