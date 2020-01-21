@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(SkillTableSeeder::class);
         $this->call(UserTableSeeder::class);
-        factory(App\User::class, 10)->create()->each(function ($user) {
+        factory(App\User::class, 9)->create()->each(function ($user) {
             $skills_number = rand(1, 4);
             $skills_id = [];
 
