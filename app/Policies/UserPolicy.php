@@ -18,4 +18,34 @@ class UserPolicy
     {
         //
     }
+
+    public function store(User $user)
+    {
+        return $user->isAdmin();
+    }
+
+    public function update()
+    {
+
+    }
+
+    public function delete()
+    {
+
+    }
+
+    public function addSkill()
+    {
+
+    }
+
+    public function updateSkill()
+    {
+
+    }
+
+    public function destroySkill()
+    {
+
+    }
 }

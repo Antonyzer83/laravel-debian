@@ -46,6 +46,10 @@ class User extends Authenticatable
         $this->attributes = $attributes;
     }
 
+    public function isAdmin()
+    {
+        return ($this->attributes['status']) ? true : false;
+    }
 
     /*
      * Set the user's name

@@ -18,4 +18,19 @@ class SkillPolicy
     {
         //
     }
+
+    public function store()
+    {
+
+    }
+
+    public function update()
+    {
+        
+    }
+
+    public function delete()
+    {
+        
+    }
 }
