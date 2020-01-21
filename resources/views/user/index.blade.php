@@ -33,20 +33,19 @@
                     <td>
                         <ul class="list-group list-group-flush">
                         @foreach($user->skills as $skill)
-                                <li class="list-group-item">{{ $skill->name }} : {{ $skill->pivot->level }} / 5</li>
+                                <li class="list-group-item"><img src="skills_img/{{ $skill->logo }}" alt="{{ $skill->name }}"> {{ $skill->name }} : {{ $skill->pivot->level }} / 5</li>
                         @endforeach
                         </ul>
                     </td>
                     @if(Auth::check())
                         @if(Auth::user()->id === $user->id || Auth::user()->status === 1)
-                            <td><a href="{{ route('users.show', $user->id) }}" class="btn btn-info">Voir</a></td>
-                            <td><a href="{{ route('users.edit', $user->id) }}" class="btn btn-success">Modifier</a></td>
-                            <td>
-                                <form action="{{ route('users.destroy', $user->id) }}" method="post">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="btn btn-danger">Supprimer</button>
-                                </form>
+                            <td><a href="{{ route('users.show', $user->id) }}" class="btn btn-info">Voir</a>
+                            <a href="{{ route('users.edit', $user->id) }}" class="btn btn-success">Modifier</a>
+                            <form action="{{ route('users.destroy', $user->id) }}" method="post">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn btn-danger">Supprimer</button>
+                            </form>
                             </td>
                         @endif
                     @endif

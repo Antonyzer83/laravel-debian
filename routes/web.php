@@ -23,6 +23,8 @@ Route::resource('skills', 'SkillController', ['except' => 'index'])->middleware(
 
 Route::get('skills', 'SkillController@index');
 
+Route::post('skills/{id}/logo', 'SkillController@updateLogo');
+
 Route::match(['put', 'patch'], 'users/{id}/skills', 'UserController@updateSkills')->middleware('auth');
 
 Route::post('users/{id}/skills', 'UserController@addSkill');

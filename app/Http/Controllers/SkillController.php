@@ -92,6 +92,22 @@ class SkillController extends Controller
         return redirect('/skills');
     }
 
+    public function updateLogo($id)
+    {
+        $data = $this->updateLogoValidation();
+        $skill = Skill::find($id);
+
+        $image_name = strtolower($skill['name']) . '.' . $data['logo']->extension();
+
+        $data['logo']->move(public_path('skills_img'), $image_name);
+        $data['logo'] = $image_name;
+
+
+        $skill->update($data);
+
+        return redirect('/skills');
+    }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -119,8 +135,14 @@ class SkillController extends Controller
     {
         return request()->validate([
             'name' => 'required',
-            'description' => 'required',
-            'logo' => 'required'
+            'description' => 'required'
+        ]);
+    }
+
+    private function updateLogoValidation()
+    {
+        return request()->validate([
+            'logo' => 'required|image|mimes:jpeg,jpg,png,svg'
         ]);
     }
 }
