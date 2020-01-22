@@ -51,19 +51,21 @@ class User extends Authenticatable
         return ($this->attributes['status']) ? true : false;
     }
 
-    /*
+
+    /**
      * Set the user's name
      *
     public function setNameAttribute()
     {
-        $this->attributes['name'] = $this->attributes['first_name'] . ' ' . $this->attributes['first_name'];
+        $this->name = $this->last_name . ' ' . $this->first_name;
     }
-    */
 
-    /*
+    /**
+     * Set the user's password
+     *
     public function setPasswordAttribute()
     {
-        $this->attributes['password'] = Hash::make($this->attributes['password']);
+        $this->password = Hash::make($this->password);
     }
     */
 

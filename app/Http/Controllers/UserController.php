@@ -51,6 +51,7 @@ class UserController extends Controller
     public function store()
     {
         $data = $this->storeValidation();
+        unset($data['c_password']);
         $data['name'] = $data['last_name'] . ' ' . $data['first_name'];
         $data['password'] = Hash::make($data['password']);
         User::create($data);
