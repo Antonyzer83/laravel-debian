@@ -7,11 +7,12 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Musonza\Chat\Traits\Messageable;
 use function foo\func;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, Messageable;
 
     /**
      * The attributes that are mass assignable.

@@ -34,3 +34,7 @@ Route::delete('users/{id}/skills', 'UserController@destroySkill');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/{user}', function (\App\User $user) {
+   event(new App\Events\SuccessEvent($user));
+});
