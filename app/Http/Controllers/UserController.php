@@ -69,6 +69,8 @@ class UserController extends Controller
     {
         $user = User::find($id);
 
+        $user->skills = $user->skills()->get();
+
         return view('user.show', ['user' => $user]);
     }
 
