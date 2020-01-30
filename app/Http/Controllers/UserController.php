@@ -50,6 +50,8 @@ class UserController extends Controller
      */
     public function store()
     {
+        $this->authorize('create', User::class);
+
         $data = $this->storeValidation();
         unset($data['c_password']);
         $data['name'] = $data['last_name'] . ' ' . $data['first_name'];
@@ -162,6 +164,8 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
+        $this->authorize('create', User::class, User::find($id));-
+
         $user = User::find($id);
         $user->delete();
 
