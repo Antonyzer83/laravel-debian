@@ -8,6 +8,8 @@ use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SendMailable;
 
 class UserController extends Controller
 {
@@ -27,6 +29,7 @@ class UserController extends Controller
             } else {
                 $user->role = "Administrateur";
             }
+            Mail::to($user->email)->send(new SendMailable($user));
         }
 
         return view('user.index', compact('users'));
@@ -50,6 +53,8 @@ class UserController extends Controller
      */
     public function store()
     {
+        $this->authorize('create', User::class);
+
         $data = $this->storeValidation();
         unset($data['c_password']);
         $data['name'] = $data['last_name'] . ' ' . $data['first_name'];
@@ -162,6 +167,8 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
+        $this->authorize('create', User::class, User::find($id));-
+
         $user = User::find($id);
         $user->delete();
 

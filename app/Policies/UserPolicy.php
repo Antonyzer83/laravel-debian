@@ -19,33 +19,18 @@ class UserPolicy
         //
     }
 
-    public function store(User $user)
+    public function create(User $user)
     {
         return $user->isAdmin();
     }
 
-    public function update()
+    public function update(User $user, User $user2)
     {
-
+        return ($user->isAdmin() || $user->id === $user2);
     }
 
-    public function delete()
+    public function delete(User $user, User $user2)
     {
-
-    }
-
-    public function addSkill()
-    {
-
-    }
-
-    public function updateSkill()
-    {
-
-    }
-
-    public function destroySkill()
-    {
-
+        return ($user->isAdmin() || $user->id === $user2);
     }
 }

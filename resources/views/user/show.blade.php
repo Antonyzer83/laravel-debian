@@ -4,7 +4,8 @@
 
 @section('content')
 
-    <div class="container">
+
+<div class="container">
         <div class="row">
             <div class="col-sm">
                 <p>ID : {{ $user->id }}</p>
