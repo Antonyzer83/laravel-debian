@@ -29,7 +29,7 @@ class UserController extends Controller
             } else {
                 $user->role = "Administrateur";
             }
-            Mail::to($user->email)->send(new SendMailable($user));
+            //Mail::to($user->email)->send(new SendMailable($user));
         }
 
         return view('user.index', compact('users'));
