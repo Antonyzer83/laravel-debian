@@ -71,10 +71,8 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function show($id)
+    public function show(User $user)
     {
-        $user = User::find($id);
-
         $user->skills = $user->skills()->get();
 
         return view('user.show', ['user' => $user]);
@@ -86,9 +84,8 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function edit($id)
+    public function edit(User $user)
     {
-        $user = User::find($id);
         $skills = $user->skills()->get();
         $available_skills = $user->availableSkills();
 
@@ -102,13 +99,12 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function update($id)
+    public function update(User $user)
     {
-        $this->authorize('update', User::find($id));
+        $this->authorize('update', $user);
 
         $data = $this->updateValidation();
 
-        $user = User::find($id);
         $user['status'] = isset($data['status']) ? $data['status'] : 0;
         $user['name'] = $data['last_name'] . ' ' . $data['first_name'];
         $user->update($data);
@@ -173,11 +169,10 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        $this->authorize('delete', User::find($id));
+        $this->authorize('delete', $user);
 
-        $user = User::find($id);
         $user->delete();
 
         return redirect('/users')->with('error', 'L\'utilisateur a bien été supprimé.');

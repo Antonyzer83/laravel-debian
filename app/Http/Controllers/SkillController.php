@@ -57,10 +57,8 @@ class SkillController extends Controller
      * @param  int  $id
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function show($id)
+    public function show(Skill $skill)
     {
-        $skill = Skill::find($id);
-
         return view('skill.show', ['skill' => $skill]);
     }
 
@@ -70,10 +68,8 @@ class SkillController extends Controller
      * @param  int  $id
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function edit($id)
+    public function edit(Skill $skill)
     {
-        $skill = Skill::find($id);
-
         return view('skill.edit', compact('skill'));
     }
 
@@ -84,13 +80,12 @@ class SkillController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function update($id)
+    public function update(Skill $skill)
     {
         $this->authorize('update', Skill::class);
 
         $data = $this->updateValidation();
 
-        $skill = Skill::find($id);
         $skill->update($data);
 
         return redirect('/skills');
@@ -118,11 +113,10 @@ class SkillController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function destroy($id)
+    public function destroy(Skill $skill)
     {
         $this->authorize('delete', Skill::class);
 
-        $skill = Skill::find($id);
         $skill->delete();
 
         return redirect('/skills')->with('error', 'La compétence a bien été supprimée.');
