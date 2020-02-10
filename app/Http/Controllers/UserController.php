@@ -29,7 +29,8 @@ class UserController extends Controller
             } else {
                 $user->role = "Administrateur";
             }
-            //Mail::to($user->email)->send(new SendMailable($user));
+            // Send mail to each user = I test on my VM !
+            // Mail::to($user->email)->send(new SendMailable($user));
         }
 
         return view('user.index', compact('users'));
@@ -103,6 +104,8 @@ class UserController extends Controller
      */
     public function update($id)
     {
+        $this->authorize('update', User::find($id));
+
         $data = $this->updateValidation();
 
         $user = User::find($id);
@@ -118,6 +121,8 @@ class UserController extends Controller
      */
     public function addSkill($id)
     {
+        $this->authorize('update', User::find($id));
+
         $data = $this->addSkillsValidation();
         $data['user_id'] = $id;
         $data['level'] = 1;
@@ -134,6 +139,8 @@ class UserController extends Controller
      */
     public function updateSkills($id)
     {
+        $this->authorize('update', User::find($id));
+
         $data = $this->updateSkillsValidation();
 
         $user = User::find($id);
@@ -150,8 +157,9 @@ class UserController extends Controller
      */
     public function destroySkill($id)
     {
+        $this->authorize('delete', User::find($id));
+
         $data = $this->destroySkillsValidation();
-        print_r($data);
 
         $user = User::find($id);
         $user->skills()->detach($data['skill_id']);
@@ -167,7 +175,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        $this->authorize('create', User::class, User::find($id));-
+        $this->authorize('delete', User::find($id));
 
         $user = User::find($id);
         $user->delete();
