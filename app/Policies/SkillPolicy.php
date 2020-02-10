@@ -19,18 +19,18 @@ class SkillPolicy
         //
     }
 
-    public function store()
+    public function create(User $user)
     {
-
+		return $user->isAdmin();
     }
 
-    public function update()
+    public function update(User $user)
     {
-        
+        return $user->isAdmin();
     }
 
-    public function delete()
+    public function delete(User $user)
     {
-        
+        return $user->isAdmin();
     }
 }
