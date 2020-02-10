@@ -37,6 +37,8 @@ class SkillController extends Controller
      */
     public function store()
     {
+        $this->authorize('create', Skill::class);
+
         $data = $this->storeValidation();
 
         $image_name = strtolower($data['name']) . '.' . $data['logo']->extension();
@@ -84,6 +86,8 @@ class SkillController extends Controller
      */
     public function update($id)
     {
+        $this->authorize('update', Skill::class);
+
         $data = $this->updateValidation();
 
         $skill = Skill::find($id);
@@ -116,6 +120,8 @@ class SkillController extends Controller
      */
     public function destroy($id)
     {
+        $this->authorize('delete', Skill::class);
+
         $skill = Skill::find($id);
         $skill->delete();
 
