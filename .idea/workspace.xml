@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="272aef83-586b-4104-b632-78b081e89a5a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/laravel-tutoriel.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/laravel-tutoriel.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Policies/UserPolicy.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Policies/UserPolicy.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SkillController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SkillController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -195,22 +191,39 @@
       <workItem from="1580228298595" duration="611000" />
       <workItem from="1580311710868" duration="9000" />
       <workItem from="1581339411457" duration="79000" />
-      <workItem from="1581592133314" duration="1218000" />
+      <workItem from="1581592133314" duration="1323000" />
+      <workItem from="1581598484568" duration="208000" />
     </task>
+    <task id="LOCAL-00001" summary="Update UserController with new Policies">
+      <created>1581593376102</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1581593376102</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Update UserController with new Policies" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update UserController with new Policies" />
   </component>
   <component name="WindowStateProjectService">
     <state x="404" y="145" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1579594135772">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="404" y="145" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.680@0.0.1280.680" timestamp="1579594135772" />
-    <state x="371" y="97" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1579031323413">
+    <state x="371" y="97" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1581593424163">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="371" y="97" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1280.680@0.0.1280.680" timestamp="1579031323413" />
+    <state x="371" y="97" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1280.680@0.0.1280.680" timestamp="1581593424163" />
+    <state x="265" y="0" key="CommitChangelistDialog2" timestamp="1581593371326">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="265" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1581593371326" />
     <state x="421" y="97" key="FileChooserDialogImpl" timestamp="1579604166146">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -223,6 +236,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="533" height="446" key="SwitcherDM/0.0.1280.680@0.0.1280.680" timestamp="1579167071043" />
+    <state x="233" y="75" key="Vcs.Push.Dialog.v2" timestamp="1581598489790">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="233" y="75" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1581598489790" />
     <state x="432" y="31" key="svn.repositoryBrowser" timestamp="1578395455654">
       <screen x="0" y="0" width="1280" height="680" />
     </state>

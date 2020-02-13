@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Skill;
+use App\User;
 use Illuminate\Http\Request;
 
 class SkillController extends Controller
@@ -26,6 +27,8 @@ class SkillController extends Controller
      */
     public function create()
     {
+        $this->authorize('create', User::class);
+
         return view('skill.create');
     }
 
@@ -70,6 +73,8 @@ class SkillController extends Controller
      */
     public function edit(Skill $skill)
     {
+        $this->authorize('update', Skill::class);
+
         return view('skill.edit', compact('skill'));
     }
 
@@ -93,6 +98,8 @@ class SkillController extends Controller
 
     public function updateLogo($id)
     {
+        $this->authorize('update', Skill::class);
+
         $data = $this->updateLogoValidation();
         $skill = Skill::find($id);
 
@@ -125,8 +132,8 @@ class SkillController extends Controller
     private function storeValidation()
     {
         return request()->validate([
-            'name' => 'required|unique:skills',
-            'description' => 'required',
+            'name' => 'required|string|unique:skills',
+            'description' => 'required|string',
             'logo' => 'required|image|mimes:jpeg,jpg,png,svg'
         ]);
     }
@@ -134,8 +141,8 @@ class SkillController extends Controller
     private function updateValidation()
     {
         return request()->validate([
-            'name' => 'required',
-            'description' => 'required'
+            'name' => 'required|string',
+            'description' => 'required|string'
         ]);
     }
 
