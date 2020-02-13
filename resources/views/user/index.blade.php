@@ -4,6 +4,30 @@
 
 @section('content')
 
+    <form method="post" class="form mb-5" action="{{ route('users.search') }}">
+        @csrf
+
+        <div class="form-group">
+            <label class="font-weight-bold">Choisir une compétence :</label>
+            <select class="form-control" name="skill_id">
+                @foreach($skills as $skill)
+                    <option value="{{ $skill->id }}">{{ $skill->name }}</option>
+                @endforeach
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label class="font-weight-bold">Choisir un niveau minimum :</label>
+            <select class="form-control" name="level">
+                @for($i = 1; $i < 6; $i++)
+                    <option value="{{ $i }}">{{ $i }}</option>
+                @endfor
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Rechercher</button>
+    </form>
+
     <table class="table">
         <thead>
             <tr>
@@ -33,7 +57,7 @@
                     <td>
                         <ul class="list-group list-group-flush">
                         @foreach($user->skills as $skill)
-                                <li class="list-group-item"><img src="skills_img/{{ $skill->logo }}" alt="{{ $skill->name }}"> {{ $skill->name }} : {{ $skill->pivot->level }} / 5</li>
+                                <li class="list-group-item"><img src="../skills_img/{{ $skill->logo }}" alt="{{ $skill->name }}"> {{ $skill->name }} : {{ $skill->pivot->level }} / 5</li>
                         @endforeach
                         </ul>
                     </td>

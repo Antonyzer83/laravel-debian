@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\SendMailable;
+use function foo\func;
 
 class UserController extends Controller
 {
@@ -33,7 +34,9 @@ class UserController extends Controller
             // Mail::to($user->email)->send(new SendMailable($user));
         }
 
-        return view('user.index', compact('users'));
+        $skills = Skill::select('id', 'name')->get();
+
+        return view('user.index', ['users' => $users, 'skills' => $skills]);
     }
 
     /**
@@ -182,6 +185,33 @@ class UserController extends Controller
         return redirect('/users')->with('error', 'L\'utilisateur a bien été supprimé.');
     }
 
+    public function search()
+    {
+        $data = $this->searchValidation();
+
+        $users = User::join('skill_user as su', 'users.id', 'su.user_id')
+            ->where([
+                ['su.skill_id', $data['skill_id']],
+                ['level', '>=', $data['level']]
+            ])
+            ->get();
+
+        foreach ($users as $user) {
+            $user->skills = $user->skills()->get();
+            if ($user->status === 0) {
+                $user->role = "Standard";
+            } else {
+                $user->role = "Administrateur";
+            }
+            // Send mail to each user = I test on my VM !
+            // Mail::to($user->email)->send(new SendMailable($user));
+        }
+
+        $skills = Skill::select('id', 'name')->get();
+
+        return view('user.index', ['users' => $users, 'skills' => $skills]);
+    }
+
     private function storeValidation()
     {
         return request()->validate([
@@ -224,6 +254,14 @@ class UserController extends Controller
     {
         return request()->validate([
             'skill_id' => 'required|integer'
+        ]);
+    }
+
+    private function searchValidation()
+    {
+        return request()->validate([
+            'skill_id' => 'required|integer|exists:skills,id',
+            'level' => 'required|integer|between:1,5'
         ]);
     }
 }

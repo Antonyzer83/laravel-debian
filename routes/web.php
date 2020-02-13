@@ -19,6 +19,8 @@ Route::resource('users', 'UserController', ['except' => 'index'])->middleware('a
 
 Route::get('users', 'UserController@index');
 
+Route::post('users/search', 'UserController@search')->name('users.search');
+
 Route::resource('skills', 'SkillController', ['except' => 'index'])->middleware('auth');
 
 Route::get('skills', 'SkillController@index');
