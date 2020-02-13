@@ -25,7 +25,7 @@
                     @foreach($skill->users as $user)
                         <tr>
                             <td>{{ $user->id }}</td>
-                            <td>{{ $user->name }}</td>
+                            <td><a href="{{ route('users.show', $user->id) }}">{{ $user->name }}</a></td>
                             <td>
                                 <ul class="list-group list-group-flush">
                                     @foreach($user->skills as $skill)

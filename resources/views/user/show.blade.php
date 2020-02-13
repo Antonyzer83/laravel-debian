@@ -27,12 +27,12 @@
                     <body>
                         @foreach($user->skills as $skill)
                             <tr>
-                                <td>{{ $skill->name }} <img src="../skills_img/{{ $skill->logo }}" alt="{{ $skill->name }}"></td>
+                                <td><a href="{{ route('skills.show', $skill->id) }}">{{ $skill->name }} <img src="../skills_img/{{ $skill->logo }}" alt="{{ $skill->name }}"></a></td>
                                 <td>{{ $skill->pivot->level }} / 5</td>
                             </tr>
                         @endforeach
                     </body>
-                </table>    
+                </table>
             </div>
         </div>
     </div>

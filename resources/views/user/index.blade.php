@@ -57,7 +57,7 @@
                     <td>
                         <ul class="list-group list-group-flush">
                         @foreach($user->skills as $skill)
-                                <li class="list-group-item"><img src="../skills_img/{{ $skill->logo }}" alt="{{ $skill->name }}"> {{ $skill->name }} : {{ $skill->pivot->level }} / 5</li>
+                                <li class="list-group-item"><a href="{{ route('skills.show', $skill->id) }}"><img src="../skills_img/{{ $skill->logo }}" alt="{{ $skill->name }}"> {{ $skill->name }}</a> : {{ $skill->pivot->level }} / 5</li>
                         @endforeach
                         </ul>
                     </td>
