@@ -23,20 +23,7 @@ class UserController extends Controller
     {
         $users = User::all();
 
-        foreach ($users as $user) {
-            $user->skills = $user->skills()->get();
-            if ($user->status === 0) {
-                $user->role = "Standard";
-            } else {
-                $user->role = "Administrateur";
-            }
-            // Send mail to each user = I test on my VM !
-            // Mail::to($user->email)->send(new SendMailable($user));
-        }
-
-        $skills = Skill::select('id', 'name')->get();
-
-        return view('user.index', ['users' => $users, 'skills' => $skills]);
+        return $this->indexSearch($users);
     }
 
     /**
@@ -196,6 +183,11 @@ class UserController extends Controller
             ])
             ->get();
 
+        return $this->indexSearch($users);
+    }
+
+    private function indexSearch($users)
+    {
         foreach ($users as $user) {
             $user->skills = $user->skills()->get();
             if ($user->status === 0) {
