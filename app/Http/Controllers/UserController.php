@@ -43,6 +43,8 @@ class UserController extends Controller
      */
     public function create()
     {
+        $this->authorize('create', User::class);
+
         return view('user.create');
     }
 
@@ -86,6 +88,8 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
+        $this->authorize('update', $user);
+
         $skills = $user->skills()->get();
         $available_skills = $user->availableSkills();
 
@@ -181,23 +185,23 @@ class UserController extends Controller
     private function storeValidation()
     {
         return request()->validate([
-            'first_name' => 'required',
-            'last_name' => 'required',
-            'email' => 'required|unique:users',
-            'bio' => 'required',
-            'password' => 'required',
-            'c_password' => 'required|same:password'
+            'first_name' => 'required|string',
+            'last_name' => 'required|string',
+            'email' => 'required|string|unique:users',
+            'bio' => 'required|string',
+            'password' => 'required|string',
+            'c_password' => 'required|string|same:password'
         ]);
     }
 
     private function updateValidation()
     {
         return request()->validate([
-            'first_name' => 'required',
-            'last_name' => 'required',
-            'email' => 'required',
+            'first_name' => 'required|string',
+            'last_name' => 'required|string',
+            'email' => 'required|string',
             'status' => 'integer|between:0,1',
-            'bio' => 'required'
+            'bio' => 'required|string'
         ]);
     }
 
