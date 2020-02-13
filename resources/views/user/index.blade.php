@@ -29,7 +29,7 @@
     </form>
 
     <table class="table">
-        <thead>
+            <thead>
             <tr>
                 <td>ID</td>
                 <td>Nom entier</td>
@@ -43,8 +43,8 @@
                     <td colspan="3">Actions</td>
                 @endif
             </tr>
-        </thead>
-        <body>
+            </thead>
+            <body>
             @foreach($users as $user)
                 <tr @if(Auth::check()) @if(Auth::user()->id == $user->id) style="color: red;" @endif @endif>
                     <td>{{ $user->id }}</td>

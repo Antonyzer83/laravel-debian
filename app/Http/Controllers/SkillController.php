@@ -57,11 +57,17 @@ class SkillController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param Skill $skill
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function show(Skill $skill)
     {
+        $skill->users = $skill->users()->get();
+
+        foreach ($skill->users as $user) {
+            $user->skills = $user->skills()->get();
+        }
+
         return view('skill.show', ['skill' => $skill]);
     }
 
